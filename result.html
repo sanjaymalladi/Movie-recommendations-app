@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #f39c12;
+        }
+
+        h3 {
+            color: #3498db;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li:before {
+            content: "•";
+            color: #f39c12;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Movie Details</h2>
+    <h3>Title: {{ movie_details['title'] }}</h3>
+    <p>Genres: {{ ', '.join(movie_details['genres']) }}</p>
+
+    <h3>Cast:</h3>
+    <ul>
+        {% for actor in movie_details['cast'] %}
+            <li>{{ actor['name'] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Crew:</h3>
+    <ul>
+        {% for member in movie_details['crew'] %}
+            <li>{{ member['name'] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Recommended Movies</h2>
+    <ul>
+        {% for i, movie in enumerate(recommendations, start=1) %}
+            <li>{{ i }}. {{ movie['title'] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
