@@ -1,9 +1,11 @@
 import requests
+import os
+from dotenv import load_dotenv
 
-api_key = 'bc4279975ab32796e9a2477325d3d5dd'
-OMDB_API_KEY = '3ce57d37'
-OMDB_API_URL = 'http://www.omdbapi.com/'
-base_url = 'https://api.themoviedb.org/3'
+api_key = os.getenv('API_KEY')
+OMDB_API_KEY = os.getenv('OMDB_API_KEY')
+OMDB_API_URL = os.getenv('OMDB_API_URL')
+base_url = os.getenv('BASE_URL')
 
 def search_movie(query):
     search_endpoint = '/search/movie'
