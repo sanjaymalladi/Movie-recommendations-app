@@ -3,4 +3,3 @@ requests
 Werkzeug
 gunicorn
 python-dotenv
-os
